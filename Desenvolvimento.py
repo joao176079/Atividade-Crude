@@ -16,6 +16,9 @@ lista_de_clientes = []
 
 for i in range (PESQUISA_DIGITALIZADA):
 
-    total_de_familias = int (input ("Digite o total de familias"))
-    media_de_num
+    total_de_familias = int (input ("Digite o total de familias: "))
+    media_salario_populacao = input ("A quantidade de média da população: ")
+    media_numero_de_filhos = input ("A quantidade da média de filhos: ")
+    maior_salario = int (input ("Maior salário: "))
+    menor_salario = int (input ("Menor salário: "))
     
