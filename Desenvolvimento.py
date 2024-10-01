@@ -1,5 +1,3 @@
-import os 
-from dataclasses import dataclass
 
 os.system("cls || clear")
 
@@ -19,6 +17,7 @@ for i in range (PESQUISA_DIGITALIZADA):
     total_de_familias = int (input ("Digite o total de familias: "))
     
     
+
     
     
     
