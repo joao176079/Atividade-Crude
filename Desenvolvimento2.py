@@ -1,29 +1,36 @@
+#nome dos componentes: bruno henrique alves santos, joao vitor mendes
+#n° da turma: 933313
+
 import os 
 from dataclasses import dataclass
 
 os.system("cls || clear")
-nome_do_arquivo = "pesquisa_prefeitura.txt"
+
 
 @dataclass
+#cria uma classe 
 class Pesquisa :
    nome :  str
    numero_de_filhos_por_familia : int
    salario : float
-
-
-
-def maior_menor():
+#medias para salario e o menor e maior salario
+def media(a,b):
+      mediafim = a/b 
+      return mediafim
+def maior_menor(a):
     menor = min(lista_de_salarios)
     maior = max(lista_de_salarios)
     return maior, menor
 
 lista_de_familias = []
 lista_de_salarios = []
-familias = []
 
-numero_ee_familias
-contador_salario = len(lista_de_salarios)
+#adicionando os contadores
+numero_de_familias = 0
+contador_salario = 0
+contador_filhos = 0
 
+#começando o laço de repetição
 while True:
     print("""
             === Menu ===
@@ -42,30 +49,63 @@ while True:
                numero_de_filhos_por_familia = int(input("digite o números de filhos na sua familia: ")),
                salario = float(input("Digite seu salário: "))
            )
-           lista_de_salarios.append({familia.salario})
-           lista_de_familias.append({familia.numero_de_filhos_por_familia})
+           lista_de_familias.append(familia)
+           lista_de_salarios.append(familia.salario)
+           contador_salario += 1
+           numero_de_familias += 1
+           
            os.system("cls || clear")
-           with open(nome_do_arquivo, "a") as pesquisa:
-                for clthanos in familia:
-                    pesquisa.write(f"{clthanos.nome}, {clthanos.sobrenome}, {clthanos.idade}, {clthanos.peso},{clthanos.altura}\n")
+           
         case 2 :
             #exibindo dados
             print("\n=== Exibindo dados ===")
-            for clthanos in familia:
+            for clthanos in lista_de_familias:
                 print(f"Nome: {clthanos.nome} ")
-                print(f"Sobrenome: {clthanos.numero} ")
-                print(f"Idade: {clthanos.idade} ")
-                print(f"Seso: {clthanos.peso} ")
-                print(f"Altura: {clthanos.altura} ")
-            with open (nome_do_arquivo, "r") as todos_alunos:
-                for linha in familia:
-                  nome,sobrenome,idade,peso, altura = linha.strip().split(",")
-                  familias.append(pesquisa(nome=nome,salario=int(), idade=int(idade),peso = float(peso), altura=float(altura)))
+                print(f"numeros de filho: {clthanos.numero_de_filhos_por_familia} ")
+                print(f"salario: {clthanos.salario} ")
+             # Exibindo maior e menor salário
+            if contador_salario > 1:
+        
+                maior_salario, menor_salario = maior_menor(lista_de_salarios)
+                media_salario = media(sum(lista_de_salarios),(len(lista_de_salarios)))
+                print(f"\nMaior salário: {maior_salario:.2f}")
+                print(f"\nMenor salário: {menor_salario:.2f}")
+                print(f"\nA média dos salários foram: {media_salario}")
+            if numero_de_familias > 1:
+                    
+                    quantidade_familias = len(lista_de_familias)
+                    contador_filhos = 0
+                    for familia in lista_de_familias:
+                        contador_filhos += familia.numero_de_filhos_por_familia
+
+                    media_filhos = media(contador_filhos, quantidade_familias)
+                    print(f"\nMédia de filhos por família: {media_filhos:.2f}")
+            
         case 3:
-            #parando o codigo
-            pesquisa.close()
+            #colocando os aruivos no txt
+            # #Salvar em um arquivo chamado: pesquisa_prefeitura.txt
+            nome_do_arquivo = "pesquisa_prefeitura.txt"
+            with open(nome_do_arquivo, "a") as Pesquisadts:
+                            for clthanos in lista_de_familias:
+                                Pesquisadts.write(f"{clthanos.nome}, {clthanos.salario}, {clthanos.numero_de_filhos_por_familia}\n")
             break
 
-#Salvar em um arquivo chamado: pesquisa_prefeitura.txt
 
 
+
+                
+                
+with open (nome_do_arquivo, "r") as todos_alunos:
+                for linha in lista_de_familias:
+                  nome,salario, numero_de_filhos_por_familia = linha.strip().split(",")
+                  lista_de_familias.append(Pesquisadts(nome=nome,salario=float(salario), numero_de_familias=int(numero_de_filhos_por_familia)))
+
+print("\n=== exibindo dados das familias ===")
+for clthanos in lista_de_familias:
+    for clthanos in lista_de_familias:
+                print(f"Nome: {clthanos.nome} ")
+                print(f"numeros de filho: {clthanos.numero_de_filhos_por_familia} ")
+                print(f"salario: {clthanos.salario} ")
+
+#parando o codigo
+Pesquisadts.close()
